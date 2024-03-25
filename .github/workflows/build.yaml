@@ -332,6 +332,10 @@ jobs:
                   source pyenv/bin/activate
                   pip3 install -r src/setup_payload/python/requirements.txt
                   python3 src/setup_payload/tests/run_python_setup_payload_gen_test.py out/chip-tool
+            - uses: actions/upload-artifact@v4
+              with:
+                path: 'out/*'
+                retention-days: 5
 
     build_linux_python_lighting_device:
         name: Build on Linux (python lighting-app)
